@@ -4,7 +4,7 @@
   "description": "network for legacy teams",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
+    "start": "node server.js",
     "server": "nodemon server"
   },
   "engines": {
