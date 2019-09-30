@@ -1,4 +1,4 @@
 {
-  "jwtPrivateKey": "legacy-teams-backend_jwtPrivateKey",
+  "jwtPrivateKey": "legacy_jwtPrivateKey",
   "db": "legacy_db"
 }
