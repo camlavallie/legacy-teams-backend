@@ -1,7 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db')
 const app = express();
-const Cors = require("cors");
+
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
@@ -14,7 +14,7 @@ connectDB();
 app.use(express.json({
   extended: false
 }));
-
+app.use(cors());
 // app.get('/', (req, res) => res.send('API Running'));
 
 // Define Routes 
