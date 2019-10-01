@@ -7,6 +7,11 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 
 
+
+var corsOptions = {
+  origin: 'http://legacyteams.net',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 // connect database
 connectDB();
 
@@ -15,22 +20,16 @@ app.use(express.json({
   extended: false
 }));
 app.use(cors());
-// app.get('/', (req, res) => res.send('API Running'));
 
+// app.get('/', (req, res) => res.send('API Running'));
 // Define Routes 
-app.use('/api/users', cors(), require('./routes/api/users'));
-app.use('/api/auth', cors(), require('./routes/api/auth'));
-app.use('/api/profile', cors(), require('./routes/api/profile'));
-app.use('/api/posts', cors(), require('./routes/api/posts'));
+app.use('/api/users', cors(corsOptions), require('./routes/api/users'));
+app.use('/api/auth', cors(corsOptions), require('./routes/api/auth'));
+app.use('/api/profile', cors(corsOptions), require('./routes/api/profile'));
+app.use('/api/posts', cors(corsOptions), require('./routes/api/posts'));
 app.use(helmet());
 app.use(morgan('tiny'));
 require('./startup/prod')(app);
-
-app.use(function(request, response, next) {
-    response.header("Access-Control-Allow-Origin", "*");
-    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 
 const PORT = process.env.PORT || 5000;
 
