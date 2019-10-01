@@ -9,7 +9,7 @@ const morgan = require('morgan');
 
 
 var corsOptions = {
-  origin: 'http://legacyteams.net',
+  origin: 'http://www.legacyteams.net',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 // connect database
