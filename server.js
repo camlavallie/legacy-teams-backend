@@ -24,7 +24,10 @@ app.use('/api/posts', require('./routes/api/posts'));
 app.use(helmet());
 app.use(morgan('tiny'));
 require('./startup/prod')(app);
-app.use(cors(app));
+app.use(cors({
+  origin: 'http://www.legacyteams.net',
+  credentials: true
+}));
 
 const PORT = process.env.PORT || 5000;
 
