@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./config/db')
 const app = express();
 const Cors = require("cors");
+const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
@@ -17,15 +18,13 @@ app.use(express.json({
 // app.get('/', (req, res) => res.send('API Running'));
 
 // Define Routes 
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/auth', require('./routes/api/auth'));
-app.use('/api/profile', require('./routes/api/profile'));
-app.use('/api/posts', require('./routes/api/posts'));
+app.use('/api/users', cors(), require('./routes/api/users'));
+app.use('/api/auth', cors(), require('./routes/api/auth'));
+app.use('/api/profile', cors(), require('./routes/api/profile'));
+app.use('/api/posts', cors(), require('./routes/api/posts'));
 app.use(helmet());
 app.use(morgan('tiny'));
 require('./startup/prod')(app);
-app.use(Cors());
-require('./startup/cors')(app);
 
 app.use(function(request, response, next) {
     response.header("Access-Control-Allow-Origin", "*");
