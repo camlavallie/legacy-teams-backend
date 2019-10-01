@@ -14,7 +14,7 @@ module.exports = function() {
 
   winston.add(winston.transports.File, { filename: "logfile.log" });
   winston.add(winston.transports.MongoDB, {
-    db: "mongodb://martyria:Bethel1@ds211558.mlab.com:11558/martyria",
+    db: "mongodb://elenakathryn:Jesusfirst7!@ds062339.mlab.com:62339/elena-kathryn",
     level: "info"
   });
 };

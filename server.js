@@ -14,8 +14,7 @@ app.use(express.json({
   extended: false
 }));
 
-app.use(cors());
-app.get('/', (req, res) => res.send('API Running'));
+// app.get('/', (req, res) => res.send('API Running'));
 
 // Define Routes 
 app.use('/api/users', require('./routes/api/users'));
@@ -25,6 +24,7 @@ app.use('/api/posts', require('./routes/api/posts'));
 app.use(helmet());
 app.use(morgan('tiny'));
 require('./startup/prod')(app);
+app.use(cors(app));
 
 const PORT = process.env.PORT || 5000;
 
