@@ -1,7 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db')
 const app = express();
-const cors = require('cors');
+const Cors = require("cors");
 const helmet = require('helmet');
 const morgan = require('morgan');
 
@@ -24,13 +24,13 @@ app.use('/api/posts', require('./routes/api/posts'));
 app.use(helmet());
 app.use(morgan('tiny'));
 require('./startup/prod')(app);
-app.use(cors());
+app.use(Cors());
 
 
-app.use(function (request, response, next) {
-  response.header("Access-Control-Allow-Origin", "*");
-  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+app.use(function(request, response, next) {
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
 });
 
 const PORT = process.env.PORT || 5000;
