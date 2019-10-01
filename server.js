@@ -25,7 +25,7 @@ app.use(helmet());
 app.use(morgan('tiny'));
 require('./startup/prod')(app);
 app.use(Cors());
-
+require('./startup/cors')(app);
 
 app.use(function(request, response, next) {
     response.header("Access-Control-Allow-Origin", "*");
