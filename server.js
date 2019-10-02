@@ -30,10 +30,10 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 // Define Routes 
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/auth', require('./routes/api/auth'));
-app.use('/api/profile', require('./routes/api/profile'));
-app.use('/api/posts', require('./routes/api/posts'));
+app.use('/api/users', cors(corsOptions), require('./routes/api/users'));
+app.use('/api/auth', cors(corsOptions), require('./routes/api/auth'));
+app.use('/api/profile', cors(corsOptions), require('./routes/api/profile'));
+app.use('/api/posts', cors(corsOptions), require('./routes/api/posts'));
 app.use(helmet());
 app.use(morgan('tiny'));
 
