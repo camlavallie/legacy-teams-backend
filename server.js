@@ -15,7 +15,7 @@ app.use(express.json({
 }));
 // app.get('/', (req, res) => res.send('API Running'));
 // Set up a whitelist and check against it:
-var whitelist = ['http://www.legacyteams.net/posts', 'http://www.legacyteams.net/auth']
+var whitelist = ['http://www.legacyteams.net']
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
@@ -36,7 +36,6 @@ app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use(helmet());
 app.use(morgan('tiny'));
-require('./startup/prod')(app);
 
 
 const PORT = process.env.PORT || 5000;
