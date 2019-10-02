@@ -15,7 +15,7 @@ app.use(express.json({
 }));
 // app.get('/', (req, res) => res.send('API Running'));
 // Set up a whitelist and check against it:
-var whitelist = ['http://www.legacyteams.net', 'https://legacy-teams.herokuapp.com/']
+var whitelist = ['http://www.legacyteams.net/posts', 'http://www.legacyteams.net/auth']
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
