@@ -15,7 +15,7 @@ app.use(express.json({
 }));
 // app.get('/', (req, res) => res.send('API Running'));
 // Set up a whitelist and check against it:
-var whitelist = ['http://www.legacyteams.net', 'https://legacy-teams.herokuapp.com', 'http://localhost:3000']
+var whitelist = ['http://www.legacyteams.net', 'https://legacy-teams.herokuapp.com', 'http://localhost:3000', 'Access-Control-Allow-Headers', '*']
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
@@ -27,22 +27,17 @@ var corsOptions = {
 }
 
 // Then pass them to cors:
-app.use(cors(corsOptions));
+app.use(cors(corsOptions) );
 
 // Define Routes 
-app.use('/api/users', require('./routes/api/users'), function (req, res) {
-      res.setHeader('Access-Control-Allow-Origin', 'http://www.legacyteams.net');});
-app.use('/api/auth', require('./routes/api/auth'), function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://www.legacyteams.net');
-});
-app.use('/api/profile', require('./routes/api/profile'), function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://www.legacyteams.net');
-});
-app.use('/api/posts', require('./routes/api/posts'), function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://www.legacyteams.net');
-});
+
+app.use('/api/users', require('./routes/api/users', 'Access-Control-Allow-Headers', '*'));
+app.use('/api/auth', require('./routes/api/auth', 'Access-Control-Allow-Headers', '*'));
+app.use('/api/profile', require('./routes/api/profile', 'Access-Control-Allow-Headers', '*'));
+app.use('/api/posts', require('./routes/api/posts', 'Access-Control-Allow-Headers', '*'));
 app.use(helmet());
 app.use(morgan('tiny'));
+
 
 
 const PORT = process.env.PORT || 5000;
