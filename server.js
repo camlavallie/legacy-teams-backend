@@ -14,20 +14,10 @@ app.use(express.json({
   extended: false
 }));
 // app.get('/', (req, res) => res.send('API Running'));
-// Set up a whitelist and check against it:
-var whitelist = ['http://www.legacyteams.net', 'https://legacy-teams.herokuapp.com', 'http://localhost:3000', 'Access-Control-Allow-Headers', '*']
-var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
+
 
 // Then pass them to cors:
-app.use(cors(corsOptions) );
+app.use(cors());
 
 // Define Routes 
 
