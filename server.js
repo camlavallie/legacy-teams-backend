@@ -3,17 +3,14 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const cors = require('cors');
 const connectDB = require('./config/db')
+
 const app = express();
-const mongoose = require('mongoose');
+
 // connect database
 connectDB();
 
-mongoose.connect("mongodb://camlavallie:Jesusfirst7!@ds041157.mlab.com:41157/legacy-teams")
-  .then(() => console.log('Connected'))
-
-
 // Init Middleware
-// app.use(express.json({extended: false}));
+app.use(express.json({extended: false}));
 // app.get('/', (req, res) => res.send('API Running'));
 
 
