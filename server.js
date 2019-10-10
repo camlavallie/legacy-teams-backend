@@ -28,11 +28,8 @@ app.use(helmet());
 app.use(morgan('tiny'));
 require('./startup/prod')(app);
 
-const NODE_ENV = 'production';
-
 
 
 const PORT = process.env.PORT || 5000;
-// const NODE_ENV = process.env.NODE_ENV || 5000; 
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT} || ${NODE_ENV}`))
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
