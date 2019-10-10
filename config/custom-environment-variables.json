@@ -1,5 +1,4 @@
 {
   "jwtPrivateKey": "legacy-teams_jwtPrivateKey",
-  "db": "legacy-teams_db",
-  "NODE_ENV": "production"
+  "db": "legacy-teams_db"
 }
