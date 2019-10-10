@@ -3,7 +3,6 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const cors = require('cors');
 const connectDB = require('./config/db');
-
 const app = express();
 
 // connect database
@@ -16,7 +15,7 @@ app.use(express.json({
 
 
 
-// Then pass them to cors:
+// Then pass them to cors:sdfsdfsd
 // Define Routes 
 app.use(cors());
 app.options('*', cors());
