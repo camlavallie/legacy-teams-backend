@@ -1,4 +1,5 @@
 {
   "jwtSecret": "legacy-teams_jwtPrivateKey",
   "db": "mongodb://camlavallie:Jesusfirst7!@ds041157.mlab.com:41157/legacy-teams"
+
 }
