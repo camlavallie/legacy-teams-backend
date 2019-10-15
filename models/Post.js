@@ -1,12 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 const PostSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
   title: {
+    type: String,
+    required: true
+  },
+  resource: {
     type: String,
     required: true
   },
@@ -37,6 +45,10 @@ const PostSchema = new Schema({
       title: {
         type: String,
         required: true
+      },
+      resource: {
+        type: String,
+          required: true
       },
       text: {
           type: String,
