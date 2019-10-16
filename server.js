@@ -25,7 +25,7 @@ app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use(helmet());
 app.use(morgan('tiny'));
-require('./startup/prod')(app);
+
 
 
 
