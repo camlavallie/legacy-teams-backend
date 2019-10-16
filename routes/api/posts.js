@@ -8,8 +8,6 @@ const auth = require('../../middleware/auth');
 const Post = require('../../models/Post');
 const User = require('../../models/User');
 
-
-
 // @route   Get api/posts
 // @desc    Create a post
 //@access   Private
