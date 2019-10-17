@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix && npm runbuild --prefix"
+    "server": "nodemon server"
   },
   "engines": {
     "node": "10.15.3"
@@ -20,13 +19,11 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-validator": "^6.2.0",
-    "graphquire": "^0.8.0",
     "gravatar": "^1.8.0",
     "helmet": "^3.21.1",
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.1",
     "linkifyjs": "^2.1.8",
-    "modules": "^0.4.0",
     "mongoose": "^5.7.1",
     "morgan": "^1.9.1",
     "request": "^2.88.0"
