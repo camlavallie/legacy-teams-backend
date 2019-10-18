@@ -8,8 +8,7 @@
     "server": "nodemon server"
   },
   "engines": {
-    "node": "10.15.3",
-    "npm": "6.12.0"
+    "node": "10.15.3"
   },
   "author": "Cameron LaVallie",
   "license": "MIT",
